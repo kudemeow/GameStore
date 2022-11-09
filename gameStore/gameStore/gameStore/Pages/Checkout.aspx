@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" 
     Inherits="gameStore.Pages.Checkout"
-    MasterPageFile="~/Pages/Store.Master" %>
+    MasterPageFile="/Pages/Store.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">
