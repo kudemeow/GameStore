@@ -16,7 +16,7 @@
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         </div>
             <div>
-                <label for="name">Имя заказчика:</label>
+                <label for="name">Имя:</label>
                 <input id="name" name="name" runat="server" />
             </div>
             <div>

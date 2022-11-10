@@ -14,8 +14,8 @@ namespace gameStore.Models
     public class OrderLine
     {
         public int OrderLineID { get; set; }
-        public Order Order { get; set; }
-        public Game Game { get; set; }
+        public Order Order_OrderID { get; set; }
+        public Game Game_GameID { get; set; }
         public int Quantity { get; set; }
     }
 }

@@ -11,12 +11,13 @@ namespace gameStore.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //checkoutForm.Visible = true;
-            //checkoutMessage.Visible = false;
+            checkoutForm.Visible = true;
+            checkoutMessage.Visible = false;
 
             if (IsPostBack)
             {
                 Order myOrder = new Order();
+
                 if (TryUpdateModel(myOrder, new FormValueProvider(ModelBindingExecutionContext)))
                 {
 
@@ -28,17 +29,17 @@ namespace gameStore.Pages
                     {
                         myOrder.OrderLines.Add(new OrderLine
                         {
-                            Order = myOrder,
-                            Game = line.Game,
+                            Order_OrderID = myOrder,
+                            Game_GameID = line.Game,
                             Quantity = line.Quantity
                         });
                     }
 
-                    new Repository().SaveOrder(myOrder);    
+                    new Repository().SaveOrder(myOrder);
                     myCart.Clear();
 
-                    //checkoutForm.Visible = false;
-                    //checkoutMessage.Visible = true;
+                    checkoutForm.Visible = false;
+                    checkoutMessage.Visible = true;
                 }
             }
         }

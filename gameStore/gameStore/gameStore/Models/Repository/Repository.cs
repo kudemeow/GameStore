@@ -9,7 +9,7 @@ namespace gameStore.Models.Rerository
         private EFDbContext context = new EFDbContext();
 
         public IEnumerable<Game> Games => context.Games;
-        public IEnumerable<Order> Orders => context.Orders.Include(o => o.OrderLines.Select(ol => ol.Game));
+        public IEnumerable<Order> Orders => context.Orders.Include(o => o.OrderLines.Select(ol => ol.Game_GameID));
 
         // Сохранить данные заказа в базе данных
         public void SaveOrder(Order order)
@@ -20,7 +20,7 @@ namespace gameStore.Models.Rerository
 
                 foreach (OrderLine line in order.OrderLines)
                 {
-                    context.Entry(line.Game).State = EntityState.Modified;
+                    context.Entry(line.Game_GameID).State = EntityState.Modified;
                 }
 
             }
