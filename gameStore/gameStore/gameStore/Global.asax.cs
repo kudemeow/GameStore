@@ -6,11 +6,12 @@ using System.Web.Routing;
 
 namespace gameStore
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
