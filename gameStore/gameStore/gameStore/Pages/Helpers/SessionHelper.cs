@@ -10,7 +10,8 @@ namespace gameStore.Pages.Helpers
     public enum SessionKey
     {
         CART,
-        RETURN_URL
+        RETURN_URL,
+        CHECKOUT
     }
     public class SessionHelper
     {
@@ -19,18 +20,11 @@ namespace gameStore.Pages.Helpers
             session[Enum.GetName(typeof(SessionKey), key)] = value;
         }
 
-        public static T Get<T>(HttpSessionState session, SessionKey key)
+        public static T Get<T>(HttpSessionState session, SessionKey key) where T : class
         {
             object dataValue = session[Enum.GetName(typeof(SessionKey), key)];
 
-            if (dataValue != null && dataValue is T)
-            {
-                return (T)dataValue;
-            }
-            else
-            {
-                return default;
-            }
+            return dataValue as T;
         }
 
         public static Cart GetCart(HttpSessionState session)
@@ -44,6 +38,19 @@ namespace gameStore.Pages.Helpers
             }
 
             return myCart;
+        }
+
+        public static Checkout GetCheckout(HttpSessionState session)
+        {
+            Checkout checkout = Get<Checkout>(session, SessionKey.CHECKOUT);
+
+            if (checkout == null)
+            {
+                checkout = new Checkout();
+                Set(session, SessionKey.CHECKOUT, checkout);
+            }
+
+            return checkout;
         }
     }
 }

@@ -14,28 +14,30 @@ namespace gameStore.Models.Rerository
         // Сохранить данные заказа в базе данных
         public void SaveOrder(Order order)
         {
-            if (order.OrderID == 0)
-            {
-                order = context.Orders.Add(order);
+            //Order currOrder = context.Orders.Find(order.OrderID);
 
-                foreach (OrderLine line in order.OrderLines)
-                {
-                    context.Entry(line.Game_GameID).State = EntityState.Modified;
-                }
+            //if (currOrder == null)
+            //{
+            //    Order dbOrder = new Order()
+            //    {
+            //        Name = order.Name,
+            //        Email = order.Email,
+            //        Completed = order.Completed
+            //    };
 
-            }
-            else
-            {
-                Order dbOrder = context.Orders.Find(order.OrderID);
 
-                if (dbOrder != null)
-                {
-                    dbOrder.Name = order.Name;
-                    dbOrder.Email = order.Email;
-                    dbOrder.Completed = order.Completed;
-                }
-            }
+            var lines = order.OrderLines;
+            order.OrderLines = null;
+            context.Orders.Add(order);
+            //context.OrderLines.AddRange(order.OrderLines);
             context.SaveChanges();
+            lines.ForEach(x =>
+            {
+                x.Order_OrderID = order.OrderID;
+            });
+            context.OrderLines.AddRange(lines);
+            context.SaveChanges();
+            //}
         }
     }
 }
