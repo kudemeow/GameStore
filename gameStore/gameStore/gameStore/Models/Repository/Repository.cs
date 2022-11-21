@@ -24,7 +24,6 @@ namespace gameStore.Models.Rerository
             //        Completed = order.Completed
             //    };
 
-
             gameStoreEntities.GetContext().Orders.Add(order);
             //context.OrderLines.AddRange(order.OrderLines);
             gameStoreEntities.GetContext().SaveChanges();

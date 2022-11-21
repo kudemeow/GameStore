@@ -17,8 +17,8 @@ namespace gameStore.Pages
 
             if (IsPostBack)
             {
-                var name = Request.Form["ctl00$bodyContent$name"];
-                var email = Request.Form["ctl00$bodyContent$email"];
+                var name = Request.Form["name"];
+                var email = Request.Form["email"];
 
                 Orders myOrder = new Orders();
 

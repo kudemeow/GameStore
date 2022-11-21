@@ -17,11 +17,11 @@
         </div>
             <div>
                 <label for="name">Имя:</label>
-                <input id="name" name="name" runat="server" value="fuck_you"/>
+                <input id="name" name="name"/>
             </div>
             <div>
                 <label for="email">Email:</label>
-                <input id="email" name="email" runat="server" value="qwerty" />
+                <input id="email" name="email"/>
             </div>
         
         <p class="actionButtons">

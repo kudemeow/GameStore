@@ -11,7 +11,8 @@ namespace gameStore.Models.Repository
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace gameStore.Models.Repository
         }
     
         public int OrderID { get; set; }
+
+        [Required(ErrorMessage = "Пожалуйста, введите свое имя")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Пожалуйста, введите свой адрес электронной почты")]
         public string Email { get; set; }
         public bool Completed { get; set; }
     

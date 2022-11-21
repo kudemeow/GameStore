@@ -7,38 +7,29 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace gameStore.Pages
+namespace gameStore.Pages.Admin
 {
 
 
-    public partial class Checkout
+    public partial class Orders
     {
 
         /// <summary>
-        /// checkoutForm элемент управления.
+        /// Repeater1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkoutForm;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
 
         /// <summary>
-        /// ValidationSummary1 элемент управления.
+        /// showDispatched элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-
-        /// <summary>
-        /// checkoutMessage элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически созданное поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkoutMessage;
+        protected global::System.Web.UI.WebControls.CheckBox showDispatched;
     }
 }

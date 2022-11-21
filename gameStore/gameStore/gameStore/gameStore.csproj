@@ -168,6 +168,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\AdminStyles.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -198,6 +199,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Pages\Admin\Orders.aspx" />
     <Content Include="Pages\Checkout.aspx" />
     <Content Include="Pages\Store.Master" />
     <EntityDeploy Include="Models\Repository\gameStoreModel.edmx">
@@ -207,6 +209,7 @@
     <Content Include="Models\Repository\gameStoreModel.edmx.diagram">
       <DependentUpon>gameStoreModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Pages\Admin\Admin.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Listing.aspx" />
@@ -280,6 +283,7 @@
     <Compile Include="Controllers\CategoryList.ascx.designer.cs">
       <DependentUpon>CategoryList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\VInput.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,6 +319,20 @@
     </Compile>
     <Compile Include="Models\Repository\Orders.cs">
       <DependentUpon>gameStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CartView.aspx.cs">
       <DependentUpon>CartView.aspx</DependentUpon>
@@ -363,7 +381,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
