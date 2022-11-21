@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using gameStore.Models;
-using gameStore.Models.Rerository;
 using gameStore.Pages.Helpers;
 using System.Web.ModelBinding;
+using gameStore.Models.Repository;
+using gameStore.Models.Rerository;
 
 namespace gameStore.Pages
 {
@@ -19,22 +20,22 @@ namespace gameStore.Pages
                 var name = Request.Form["ctl00$bodyContent$name"];
                 var email = Request.Form["ctl00$bodyContent$email"];
 
-                Order myOrder = new Order();
+                Orders myOrder = new Orders();
 
                 if (TryUpdateModel(myOrder, new FormValueProvider(ModelBindingExecutionContext)))
                 {
-                    myOrder.OrderLines = new List<OrderLine>();
+                    myOrder.OrderLines = new List<OrderLines>();
 
                     Cart myCart = SessionHelper.GetCart(Session);
 
                     foreach (CartLine line in myCart.Lines)
                     {
-                        myOrder.OrderLines.Add(new OrderLine
+                        myOrder.OrderLines.Add(new OrderLines
                         {
-                            Order = myOrder,
-                            Order_OrderID = myOrder.OrderID,
-                            Game = line.Game,
-                            Game_GameID = line.Game.GameID,
+                            Orders = myOrder,
+                            //Order_OrderID = myOrder.OrderID,
+                            Games = line.Game,
+                            //Game_GameID = line.Game.GameID,
                             Quantity = line.Quantity
                         });
                     }

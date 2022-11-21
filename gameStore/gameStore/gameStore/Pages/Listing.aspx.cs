@@ -5,6 +5,7 @@ using gameStore.Models.Rerository;
 using System.Linq;
 using gameStore.Pages.Helpers;
 using System.Web.Routing;
+using gameStore.Models.Repository;
 
 namespace gameStore.Pages
 {
@@ -39,7 +40,7 @@ namespace gameStore.Pages
             
             return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
         }
-        public IEnumerable<Game> GetGames()
+        public IEnumerable<Games> GetGames()
         {
             return FilterGames()
                 .OrderBy(g => g.GameID)
@@ -47,9 +48,9 @@ namespace gameStore.Pages
                 .Take(pageSize);
         }
         // Новый вспомогательный метод для фильтрации игр по категориям
-        private IEnumerable<Game> FilterGames()
+        private IEnumerable<Games> FilterGames()
         {
-            IEnumerable<Game> games = repository.Games;
+            IEnumerable<Games> games = repository.Games;
 
             string currentCategory = (string)RouteData.Values["category"] ?? Request.QueryString["category"];
 
@@ -64,7 +65,7 @@ namespace gameStore.Pages
 
                 if (int.TryParse(Request.Form["add"], out selectedGameID))
                 {
-                    Game selectedGame = repository.Games
+                    Games selectedGame = repository.Games
                         .Where(g => g.GameID == selectedGameID).FirstOrDefault();
 
                     if (selectedGame != null)

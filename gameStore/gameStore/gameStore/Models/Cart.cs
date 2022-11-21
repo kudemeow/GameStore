@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using gameStore.Models;
+using gameStore.Models.Repository;
 
 namespace gameStore.Models
 {
     public class CartLine
     {
-        public Game Game { get; set; }
+        public Games Game { get; set; }
         public int Quantity { get; set; }
     }
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
-        public void AddItem(Game game, int quantity)
+        public void AddItem(Games game, int quantity)
         {
             CartLine line = lineCollection
                 .Where(p => p.Game.GameID == game.GameID)
@@ -32,7 +34,7 @@ namespace gameStore.Models
                 line.Quantity += quantity;
             }
         }
-        public void RemoveLine(Game game)
+        public void RemoveLine(Games game)
         {
             lineCollection.RemoveAll(l => l.Game.GameID == game.GameID);
         }

@@ -4,7 +4,7 @@
 
 <asp:Content ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">
-        <asp:Repeater ItemType="gameStore.Models.Game"
+        <asp:Repeater ItemType="gameStore.Models.Repository.Games"
             SelectMethod="GetGames" runat="server">
             <ItemTemplate>
                 <div class="item">

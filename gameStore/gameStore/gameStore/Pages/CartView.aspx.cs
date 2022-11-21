@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
 using gameStore.Models;
+using gameStore.Models.Repository;
 using gameStore.Models.Rerository;
 using gameStore.Pages.Helpers;
 
@@ -20,7 +21,7 @@ namespace gameStore.Pages
 
                 if (int.TryParse(Request.Form["remove"], out gameID))
                 {
-                    Game gameToRemove = repository.Games
+                    Games gameToRemove = repository.Games
                         .Where(g => g.GameID == gameID).FirstOrDefault();
 
                     if (gameToRemove != null)
