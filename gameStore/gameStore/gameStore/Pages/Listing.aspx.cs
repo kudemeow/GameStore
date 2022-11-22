@@ -40,17 +40,26 @@ namespace gameStore.Pages
             
             return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
         }
-        public IEnumerable<Games> GetGames()
+
+        private string GetSearchNameFromRequest() => (string)RouteData.Values["name"] ?? Request.QueryString["name"];
+
+        IEnumerable<Games> DefaultGames
         {
-            return FilterGames()
+            get => FilterGames()
                 .OrderBy(g => g.GameID)
                 .Skip((CurrentPage - 1) * pageSize)
                 .Take(pageSize);
         }
+        public IEnumerable<Games> GetGames()
+        {
+            return DefaultGames;
+        }
         // Новый вспомогательный метод для фильтрации игр по категориям
         private IEnumerable<Games> FilterGames()
         {
-            IEnumerable<Games> games = repository.Games;
+            var searchName = GetSearchNameFromRequest();
+
+            IEnumerable<Games> games = searchName == null ? repository.Games : repository.Games.Where(p => p.Name.ToLower().Contains(searchName));
 
             string currentCategory = (string)RouteData.Values["category"] ?? Request.QueryString["category"];
 

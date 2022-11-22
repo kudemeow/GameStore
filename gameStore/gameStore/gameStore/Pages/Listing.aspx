@@ -25,8 +25,11 @@
                 string category = (string)Page.RouteData.Values["category"]
                     ?? Request.QueryString["category"];
                 
+                string name = (string)Page.RouteData.Values["name"]
+                    ?? Request.QueryString["name"];
+                
                 string path = RouteTable.Routes.GetVirtualPath(null, null,
-                    new RouteValueDictionary() { {"category", category}, { "page", i } }).VirtualPath;
+                    new RouteValueDictionary() { {"category", category}, {"name", name}, { "page", i } }).VirtualPath;
                 Response.Write(
                     String.Format("<a href='{0}' {1}>{2}</a>",
                         path, i == CurrentPage ? "class='selected'" : "", i));

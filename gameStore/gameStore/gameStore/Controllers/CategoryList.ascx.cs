@@ -32,6 +32,7 @@ namespace gameStore.Controllers
 
             return string.Format("<a href='{0}' {1}>{2}</a>", path, category == selectedCategory ? "class='selected'" : "", category);
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

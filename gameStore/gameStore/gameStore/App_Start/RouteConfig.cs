@@ -15,6 +15,9 @@ namespace gameStore
             routes.MapPageRoute(null, "list/{page}", "~/Pages/Listing.aspx");
             routes.MapPageRoute(null, "list", "~/Pages/Listing.aspx");
 
+            routes.MapPageRoute(null, "list/{category}/{name}/{page}", "~/Pages/Listing.aspx");
+            routes.MapPageRoute(null, "list/{name}/{page}", "~/Pages/Listing.aspx");
+            routes.MapPageRoute(null, "list/{name}", "~/Pages/Listing.aspx");
             //корзина
             routes.MapPageRoute("cart", "cart", "~/Pages/CartView.aspx");
 

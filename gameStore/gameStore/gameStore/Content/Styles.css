@@ -8,6 +8,9 @@ div#header div.title, div.item h3, div.item h4, div.pager a {
 }
 
 div#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #444;
     border-bottom: 2px solid #111;
     color: white;
@@ -160,7 +163,6 @@ p.actionButtons {
 }
 
 div#cartSummary {
-    float: right;
     margin: .8em;
     color: Silver;
     background-color: #555;
@@ -190,4 +192,28 @@ div#cartSummary a {
 
 #errors {
     color: red;
+}
+
+.searcher {
+    width: 350px;
+    height: 200px;
+    padding-left: 150px;
+    margin-left: 50px;
+}
+
+.search {
+    width: 200px;
+    margin: 0 5px;
+}
+
+.submitButton {
+    width: 70px;
+}
+
+.nameSearch {
+    font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial;
+    font-size: 24px;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
 }

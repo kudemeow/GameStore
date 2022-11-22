@@ -19,11 +19,10 @@ namespace gameStore.Models.Repository
             : base("name=gameStoreEntities")
         {
         }
-    
+
         private static gameStoreEntities context = new gameStoreEntities();
-
         public static gameStoreEntities GetContext() => context;
-
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
