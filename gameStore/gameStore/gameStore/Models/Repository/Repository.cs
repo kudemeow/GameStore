@@ -9,6 +9,7 @@ namespace gameStore.Models.Rerository
     {
         public IEnumerable<Games> Games => gameStoreEntities.GetContext().Games;
         public IEnumerable<Orders> Orders => gameStoreEntities.GetContext().Orders.Include(o => o.OrderLines.Select(ol => ol.Game_GameID));
+        public IEnumerable<Categories> Categories => gameStoreEntities.GetContext().Categories;
 
         // Сохранить данные заказа в базе данных
         public void SaveOrder(Orders order)

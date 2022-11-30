@@ -179,16 +179,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Models\Repository\gameStoreModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>gameStoreModel.Context.cs</LastGenOutput>
-      <DependentUpon>gameStoreModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Repository\gameStoreModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>gameStoreModel.edmx</DependentUpon>
-      <LastGenOutput>gameStoreModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -198,14 +188,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Models\Repository\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Repository\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Pages\Checkout.aspx" />
     <Content Include="Pages\Store.Master" />
-    <EntityDeploy Include="Models\Repository\gameStoreModel.edmx">
+    <EntityDeploy Include="Models\Repository\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>gameStoreModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Repository\gameStoreModel.edmx.diagram">
-      <DependentUpon>gameStoreModel.edmx</DependentUpon>
+    <Content Include="Models\Repository\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\CartView.aspx" />
@@ -288,35 +288,38 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Repository\Games.cs">
-      <DependentUpon>gameStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Repository\gameStoreModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>gameStoreModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Repository\gameStoreModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>gameStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Repository\gameStoreModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>gameStoreModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Models\Repository\Categories.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Games.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Repository\OrderLines.cs">
-      <DependentUpon>gameStoreModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Repository\Orders.cs">
-      <DependentUpon>gameStoreModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\Repository.cs" />
     <Compile Include="Pages\CartView.aspx.cs">
       <DependentUpon>CartView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

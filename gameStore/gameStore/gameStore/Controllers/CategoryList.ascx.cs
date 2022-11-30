@@ -11,8 +11,8 @@ namespace gameStore.Controllers
     {
         protected IEnumerable<string> GetCategories()
         {
-            return new Repository().Games
-                .Select(p => p.Category)
+            return new Repository().Categories
+                .Select(p => p.CategoryName)
                 .Distinct()
                 .OrderBy(x => x);
         }

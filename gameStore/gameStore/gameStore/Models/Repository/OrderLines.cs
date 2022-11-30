@@ -16,8 +16,8 @@ namespace gameStore.Models.Repository
     {
         public int OrderLineID { get; set; }
         public int Quantity { get; set; }
-        public int Game_GameID { get; set; }
-        public int Order_OrderID { get; set; }
+        public Nullable<int> Game_GameID { get; set; }
+        public Nullable<int> Order_OrderID { get; set; }
     
         public virtual Games Games { get; set; }
         public virtual Orders Orders { get; set; }

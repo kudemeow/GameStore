@@ -63,7 +63,7 @@ namespace gameStore.Pages
 
             string currentCategory = (string)RouteData.Values["category"] ?? Request.QueryString["category"];
 
-            return currentCategory == null ? games : games.Where(p => p.Category == currentCategory);
+            return currentCategory == null ? games : games.Where(p => p.Categories.CategoryName == currentCategory);
         }
 
         protected void Page_Load(object sender, EventArgs e)

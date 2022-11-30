@@ -23,10 +23,11 @@ namespace gameStore.Models.Repository
         public int GameID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Category { get; set; }
+        public int CategoryID { get; set; }
         public decimal Price { get; set; }
-        public byte[] Poster { get; set; }
+        public byte[] Picture { get; set; }
     
+        public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderLines> OrderLines { get; set; }
     }
